@@ -68,32 +68,100 @@
 
 \textbf{
 \textit\textbf{{Abstract:}}
-Enter your abstract here. It should contain only one paragraph which is a breif description of your problem.
+AI is replacing humans in various laborious tasks, including watching video
+surveillance streams to detect unusual actions at airports, railway stations, bus stops, and other
+public gatherings, summarising human actions in a video, etc. A human doing these activities
+leaves a scope of error due to negligence and is cost-ineffective. Our project is to identify human activities 
+and the time in the video at which that activity took place using deep learning and video data processing methods. 
+Unlike image processing, video processing requires many input parameters and computational power to train the
+model. Our model takes a video clip as input and outputs the name and time of the activity in the video.
 }\vspace{0.5cm}
 \end{@twocolumnfalse}
 ]
 
 
 \section{Introduction}
-A detailed introduction  about the problem/background  is to be written in this section. Include proper citation to the papers referred and add acknowldgements/citation for figures or tables  not prepared by you.
+Human activity recognition is the task of identifying activities done by a human in a live video stream, recorded video clip, or sequence of images. For example, walking, 
+Running, dancing, playing cricket, jumping, etc. The two goals involved in a HAR system are to identify the activity and the time of activity in video. This data is 
+further used to trigger some actions. HAR systems can be used along with video surveillance cameras to enhance security and well-being by identifying suspicious 
+activities, crimes, and accidents in public places like airports, bus stands, forests, mountains, and other remote areas. There are many applications of the HAR 
+system in healthcare, like monitoring patient activities, developing human-computer interfaces like giving commands to computers through hand actions, virtual reality, 
+and military uses like identifying terrorist activities, etc. An alert is generated in HAR systems on certain human activities, which is further sent to the control room 
+for further inspection or trigger some actions. HAR systems reduce the scope of error due to human negligence in surveillance systems, reduce the cost of monitoring 
+and deployment, and can be easily deployed to cover large and remote areas. \\
+
+Types of HAR Systems:
+On the basis of equipment, there are two main categories of HAR (Human Activity Recognition) systems :
+Vision-Based Human Activity Recognition and Sensor-Based Human Activity Recognition.
+
+Vision-Based Human Activity Recognition:
+Vision-Based HAR is the task of capturing the video by installing static cameras at various places for observation purposes and sending it to the servers. 
+These camera security footages or camera-recorded clips are used to keep an eye and predict the movement of humans using that recording. We can use this type of HAR for 
+security, the medical field, visual monitoring, irregular behavior detection, road safety, crowd monitoring, etc. In vision-based HAR, only camera recordings are used, no 
+sensors are used for action recognition.
+
+Sensor-Based Human Activity Recognition:
+Sensor-Based HAR is a technology that can recognize human activities through sensors. In this method, data is fetched from the sensors, which can either be present in 
+smartphones or any wearable device. In vision-based HAR, cameras are installed at fixed positions, so action recognition is limited. In sensor-based HAR, data received 
+from sensors is for a specific task, but in the case of cameras, it contains data 
+from another non-target human in the view angle. For sensors, there is no limitation on the position of sensors.
+
 
 \section{Problem statement}
-Enter the problem statement. Problem state should be breif and precise description of your problem. (Maximum two to three sentences is  expected).
+This project aims to build a vision-based human activity recognition system to identify human activities and the time of the activity in a video. The input to this system
+will be a video clip. The output will be the name of the activity and its time of occurrence.
 
 \section{Literature Review}
-Detiled literature survey that includes detailes about the existing research/products in the area. Give proper citations for all the paers. With literature survey the scope and motivation of the  research should be clear. 
+We have gone through \cite{b1}, \cite{b2}, \cite{b3} to gain a basic understanding of human activity recognition systems, their history of development, techniques that 
+have evolved over time, and through that, we identified some major techniques in the field.
 
-\subsection{Sub-Headings}
-%add subsections if any
+\subsection{Vision-based HAR Methods}
+Researchers have presented many handcrafted feature-based and deep learning-based approaches over the decade. However, deep learning-based HAR techniques are used over 
+the handcrafted-feature-based approach because in the latter, the commonly used extractors are developed based on a specific dataset, and the extractors are database-biased, general 
+purpose feature extraction ability is absent, and it is a labor-intensive and time-consuming technique.
+
+CNNs are one of the most popular neural deep learning models used to process visual data and are used for image processing. One significant benefit of CNNs
+is that they can operate directly on raw data without requiring any hand-crafted feature extraction. A video can be divided into a sequence of images, and CNN 
+can be applied to each of the images. The two-stream convolutional network proposed by Sismonyan and Zisserman \cite{b4} has shown strong performance
+for human action recognition in videos. This model is a two-stream architecture including the spatial stream and the temporal stream, where each stream is executed by a
+CNN. The first stream recognizes actions from a single frame, while the second recognizes actions from motion information of multi-frame optical flow. These two streams
+are then combined for the classification task. It showed a very good performance with limited training data. However, the two-stream architecture is not applicable for human
+activity recognition in live video cameras due to higher computational complexity.
+
+However, video classification is more than just a simple image classification. To model complex dynamics of different actions, a Recurrent Neural Network (RNN) with long short-term memory(LSTM)
+is used because RNN allows us to access the long-range information of a temporal sequence. 
+The authors proposed in \cite{b5}, a novel technique that combines CNN and deep bidirectional LSTM network(DB-LSTM). Deep features are extracted from every sixth frame of the
+videos. Then, sequential information is learned from the frames using DB-LSTM. This model is capable of learning long term sequences and can process lengthy videos 
+by analyzing features for a certain time interval.
+
+\subsection{Datasets}
+We have identified some of the benchmark HAR datasets that will be used to train and test the system. These datasets are published for the general public-use by famous
+institutions.
+\begin{itemize}
+\item \cite{b6} UFC101 dataset contains 132320 realistic action videos taken from youtube that are divided into 101 categories with 100-200 videos in each category.
+\item \cite{b7} HMDB51 dataset contains 6849 action video clips divided into 51 classes, each containing more than 100 clips.
+\item \cite{b8} Kinetics 400 dataset contains 240k videos containing 400 human action classes and with more than 400 clips per class.
+\end{itemize}
 
 \section{Work Done}
-Enter the details of work done so far(if any, otherwise remove this section).
+\begin{itemize}
+\item We identified the problem domain, formulated the problem statement, and mentioned the input and output specifications.
+\item We have gone through machine learning and convolutional neural networks courses on Coursera and read articles on the same.
+\item We have done a literature survey on commonly used techniques used in human activity recognition systems.
+\item We have identified some of the useful datasets that will be used for training and testing the system.
+\end{itemize}
 
 \section{Work Plan}
-Enter the details of work plan for the current semester.
+\begin{itemize}
+\item We will explore more deep-learning techniques for human activity recognition, compare their pros and cons, and choose a suitable method as a base for this system.
+\item We will further identify more datasets large enough to avoid overfitting, cover a large class of actions and be processable within time constraints.
+\item We will create a base design of the system.
+\end{itemize}
 
 \section{Conclusion}
-   Conclude the report (One paragraph is sufficient)
+We have successfully identified the problem domain, formulated the problem statement, and mentioned the input and output. We have also identified some useful
+deep-learning techniques and looked through a few datasets. We intend to further improve our knowledge of more deep-learning techniques, look for more datasets and
+create a base design of the system by the end of this semester.
 
 % Last section is References. A sample bibliography is given as example. 
 
@@ -119,13 +187,21 @@ Enter the details of work plan for the current semester.
 %citation first, followed by the original foreign-language citation \cite{b6}.
 
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+\bibitem{b1}: Vijeta Sharma, Manjari Gupta, Anil Kumar Pandey, Deepti Mishra, and Ajai Kumar (2022) A Review of Deep Learning-based Human Activity Recognition on Benchmark Video Datasets
+\bibitem{b2}: Hieu H. Pham, Louahdi Khoudour, Alain Crouzil, Pablo Zegers, and Sergio A. Velastin (2022) Video-based Human Action Recognition using Deep Learning: A Review
+\bibitem{b3}: Vijeta Sharma, Manjari Gupta, Ajai Kumari, and Deepti Mishra (2021) Video Processing Using Deep Learning Techniques: A Systematic Literature Review
+\bibitem{b4}: K. Simonyan and A. Zisserman, "Two-stream convolutional networks for action recognition in videos," in Advances in Neural Information Processing Systems, 2014
+\bibitem{b5}: Amin Ullah, Jamil Ahmad, Khan Muhammad, Muhammad Sajjad, Sung Wook Baik,(2018) Action Recognition in Video Sequences using Deep Bi-Directional LSTM With CNN Features
+\bibitem{b6}: Soomro, K., A. Roshan Zamir, and M. Shah. 2012. "UCF101: A Dataset of 101 Human Actions Classes From Videos in The Wild". November. http://arxiv.org/abs/1212.0402 .
+\bibitem{b7}: Kuehne, H., H. Jhuang, E. Garrote, T. Poggio, and T. Serre. 2011. HMDB: A Large Video Database for Human Motion Recognition, 2011 International Conference on Computer Vision, 2011, pp. 2556-2563, doi: 10.1109/ICCV.2011.6126543
+\bibitem{b8}: Kay, W., J. Carreira, K. Simonyan, B. Zhang, C. Hillier, S. Vijayanarasimhan, and F. Viola, T. Green, T. Back, P. Natsev, M. Suleyman, and A. Zisserman . 2017. The Kinetics Human Action Video Dataset. ArXiv
+% \bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+% \bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
+% \bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
+% \bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
+% \bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
+% \bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
+% \bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
 \end{thebibliography}
 %\vspace{12pt}
 %%\color{red}
